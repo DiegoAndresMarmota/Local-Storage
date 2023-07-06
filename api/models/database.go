@@ -6,20 +6,20 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-var db *sql.DB
+var Database *sql.DB
 
 func InitConnect() {
 	if connection, err := sql.Open("mysql", urlParams() ); err != nil {
 		panic(err)
 	} else {
 		fmt.Println("Connection success")
-		db = connection
+		Database = connection
 	}
 }
 
 func CloseConnect() {
 	fmt.Println("Connection closed")
-	db.Close()
+	Database.Close()
 }
 
 func urlParams() string {
